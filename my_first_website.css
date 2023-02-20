@@ -1,21 +1,16 @@
 body {
-  margin: 0;
-  padding: 0;
+  margin: 70;
   font-family: "Arial", sans-serif;
   font-size: 14px;
   line-height: 20px;
   color: #444444;
+  background-color:#9dc9e8;
 }
-body {
-  padding-top: 70px;
-  padding-left: 70px;
-}
+
 .avatar {
   border-radius: 50%;
 }
-body {
-  background-color:#9dc9e8;
-}
+
 
 .skills-level {
   font-size: 12px;
