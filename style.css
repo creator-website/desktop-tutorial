@@ -16,6 +16,14 @@ body {
   font-size: 12px;
   text-align: center;
   color: #ffffff;
-  background-color: #0b2b67;
+  background-color: #4b689e;
 }
- 
+
+.light-theme {
+  color: #0a011b;
+  background-color:#bfddf2;
+}
+.dark-theme {
+  color: #f2f2f2;
+  background-color: #170e34;
+}
