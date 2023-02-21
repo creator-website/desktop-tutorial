@@ -6,3 +6,11 @@ body {
     color: #444444;
     background-color:#9dc9e8;
   }
+  .light-theme {
+    color: #0a011b;
+    background-color:#bfddf2;
+  }
+  .dark-theme {
+    color: #f2f2f2;
+    background-color: #170e34;
+  }
