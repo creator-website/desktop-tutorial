@@ -1,0 +1,23 @@
+version: 0.0.1
+jobs:
+  build:
+    branches:
+      only:
+        - master
+    docker:
+      - image: circleci/node:9.11.2-stretch
+
+    working_directory: ~/repo/desktop-tutorial
+
+    steps:
+      - checkout
+        
+      - run:
+          name: Deploying
+          command: |
+            rm -rf touristinya-front/.git;
+            zip -r touristinya-front.zip ./;
+
+            scp -oStrictHostKeyChecking=no front.zip ${ssh_connection}:front.zip;
+            scp -oStrictHostKeyChecking=no install.sh ${ssh_connection}:install.sh;
+            ssh -oStrictHostKeyChecking=no ${ssh_connection} <<< $'./install.sh';
