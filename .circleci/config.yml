@@ -1,17 +1,14 @@
-version: 0.0.1
+version: 2.1
+executors:
+  node-executor:
+    docker:
+      - image: cimg/node:16.14.0-browsers
+
 jobs:
   build:
-    branches:
-      only:
-        - master
-    docker:
-      - image: circleci/node:9.11.2-stretch
-
-    working_directory: ~/repo/desktop-tutorial
-
+    executor: node-executor
     steps:
       - checkout
-        
       - run:
           name: Deploying
           command: |
@@ -20,9 +17,10 @@ jobs:
 
             scp -oStrictHostKeyChecking=no front.zip ${ssh_connection}:front.zip;
             scp -oStrictHostKeyChecking=no install.sh ${ssh_connection}:install.sh;
-            ssh -oStrictHostKeyChecking=no ${ssh_connection} <<< $'./install.sh';
+            ssh -oStrictHostKeyChecking=no ${ssh_connection} './install.sh';
 
-  aita-fe-deploy-dev:
+workflows:
+  desktop-tutorial:
     jobs:
       - build:
           filters:
