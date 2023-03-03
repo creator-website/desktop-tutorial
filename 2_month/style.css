@@ -33,3 +33,15 @@ body {
     font-weight: bold;
     cursor: pointer;
   }
+
+  function initThemeSelect() {
+    const themeSelect = document.getElementById('theme-select');
+    themeSelect.addEventListener('change', () => {
+      const selectedTheme = themeSelect.value;
+      setTheme(selectedTheme);
+    });
+  }
+  
+  detectTheme();
+  initThemeSelect();
+  

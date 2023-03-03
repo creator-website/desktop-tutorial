@@ -3,10 +3,14 @@
     <meta charset="utf-8" />
     <title>Сайт Марии</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <button onclick="toggleMode()">Изменить тему</button>
+    <select id="theme-select">
+      <option value="auto-theme">Auto</option>
+      <option value="dark-theme">Dark</option>
+      <option value="light-theme">Light</option>
+    </select>
     <header>
       <h1>Первый, но, надеюсь, не последний сайт Марии</h1>
     </header>

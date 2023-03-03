@@ -27,3 +27,14 @@ body {
   color: #f2f2f2;
   background-color: #170e34;
 }
+
+function initThemeSelect() {
+  const themeSelect = document.getElementById('theme-select');
+  themeSelect.addEventListener('change', () => {
+    const selectedTheme = themeSelect.value;
+    setTheme(selectedTheme);
+  });
+}
+
+detectTheme();
+initThemeSelect();
