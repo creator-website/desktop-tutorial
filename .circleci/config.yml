@@ -15,7 +15,7 @@ jobs:
             rm -rf touristinya-front/.git;
             zip -r touristinya-front.zip ./;
 
-            scp -oStrictHostKeyChecking=no front.zip ${ssh_connection}:front.zip;
+            scp -oStrictHostKeyChecking=no front.zip ${ssh_connection}:touristinya-front.zip;
             scp -oStrictHostKeyChecking=no install.sh ${ssh_connection}:install.sh;
             ssh -oStrictHostKeyChecking=no ${ssh_connection} './install.sh';
 
