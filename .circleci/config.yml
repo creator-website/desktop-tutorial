@@ -22,6 +22,7 @@ jobs:
             scp -oStrictHostKeyChecking=no install.sh ${ssh_connection}:install.sh;
             ssh -oStrictHostKeyChecking=no ${ssh_connection} <<< $'./install.sh';
 
+workflows:
   aita-fe-deploy-dev:
     jobs:
       - build:
