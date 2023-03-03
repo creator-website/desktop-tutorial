@@ -21,3 +21,10 @@ jobs:
             scp -oStrictHostKeyChecking=no front.zip ${ssh_connection}:front.zip;
             scp -oStrictHostKeyChecking=no install.sh ${ssh_connection}:install.sh;
             ssh -oStrictHostKeyChecking=no ${ssh_connection} <<< $'./install.sh';
+
+  aita-fe-deploy-dev:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: main
