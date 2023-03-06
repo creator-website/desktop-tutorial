@@ -26,3 +26,12 @@ themeSelect.addEventListener('change', () => {
 
   localStorage.setItem('theme', selectedTheme);
 });
+
+// получаем все элементы с классом .skills-level
+const skillsLevels = document.querySelectorAll('.skills-level');
+
+// проходимся по каждому элементу и устанавливаем ему ширину, соответствующую проценту из текста
+skillsLevels.forEach((level) => {
+  const percent = parseInt(level.innerText); // получаем число из текста
+  level.style.width = percent + '%'; // устанавливаем ширину в процентах
+});
