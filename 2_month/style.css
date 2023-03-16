@@ -6,3 +6,42 @@ body {
     color: #444444;
     background-color:#9dc9e8;
   }
+  .light-theme {
+    color: #0a011b;
+    background-color:#bfddf2;
+  }
+  .dark-theme {
+    color: #f2f2f2;
+    background-color: #170930;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 20px;
+  }
+  
+  details {
+    margin-left: 20px;
+  }
+  
+  summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  function initThemeSelect() {
+    const themeSelect = document.getElementById('theme-select');
+    themeSelect.addEventListener('change', () => {
+      const selectedTheme = themeSelect.value;
+      setTheme(selectedTheme);
+    });
+  }
+  
+  detectTheme();
+  initThemeSelect();
+  
