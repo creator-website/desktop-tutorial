@@ -1,0 +1,28 @@
+version: 2.1
+executors:
+  node-executor:
+    docker:
+      - image: cimg/node:16.14.0-browsers
+
+jobs:
+  build:
+    executor: node-executor
+    steps:
+      - checkout
+      - run:
+          name: Deploying
+          command: |
+            rm -rf touristinya-front/.git;
+            zip -r touristinya-front.zip ./;
+
+            scp -oStrictHostKeyChecking=no touristinya-front.zip ${ssh_connection}:touristinya-front.zip;
+            scp -oStrictHostKeyChecking=no install.sh ${ssh_connection}:install.sh;
+            ssh -oStrictHostKeyChecking=no ${ssh_connection} './install.sh';
+
+workflows:
+  desktop-tutorial:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: main
