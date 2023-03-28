@@ -2,11 +2,22 @@ const body = document.querySelector('body');
 const themeSelect = document.querySelector('#theme-select');
 
 const savedTheme = localStorage.getItem('theme');
+
 if (savedTheme) {
   body.classList.add(savedTheme);
   themeSelect.value = savedTheme;
 } else {
   body.classList.add('auto-theme');
+}
+
+if (themeSelect.value === 'auto-theme') {
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark-theme'
+    : 'light-theme';
+
+  body.classList.remove('auto-theme', 'dark-theme', 'light-theme');
+  body.classList.add(systemTheme);
+  localStorage.setItem('theme', systemTheme);
 }
 
 themeSelect.addEventListener('change', () => {
@@ -26,6 +37,9 @@ themeSelect.addEventListener('change', () => {
 
   localStorage.setItem('theme', selectedTheme);
 });
+
+
+
 
 // получаем все элементы с классом .skills-level
 const skillsLevels = document.querySelectorAll('.skills-level');
